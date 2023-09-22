@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Addendas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Addendas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreAddenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreAddenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XML)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XML)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAddenda }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
