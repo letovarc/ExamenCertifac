@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cer.WsFactService.Request" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cer.WsFactService.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://int.certifac.mx:9006/Cer.WsFactService.WsFact.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="MessageRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="operacion" type="tns:Operacion" />
+      <xs:element minOccurs="0" name="rfcEmisor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoEmisor" type="tns:TipoEmisor" />
+      <xs:element minOccurs="0" name="xmlBase64" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageRequest" nillable="true" type="tns:MessageRequest" />
+  <xs:simpleType name="Operacion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Emision">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cancelacion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EmisionRetencion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancelacionRetencion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Operacion" nillable="true" type="tns:Operacion" />
+  <xs:simpleType name="TipoEmisor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Direct">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Provider">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoEmisor" nillable="true" type="tns:TipoEmisor" />
+</xs:schema>
